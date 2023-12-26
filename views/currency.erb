@@ -1,0 +1,11 @@
+<h1>Convert <%= @currency %></h1>
+
+<p>Go <a href="/">back</a>.</p>
+
+<ul>
+  <% @symbols.each do |key, value| %>
+    <li>
+      Convert 1 <%= @currency %> to <%= key %>...
+    </li>
+  <% end %>
+</ul>
