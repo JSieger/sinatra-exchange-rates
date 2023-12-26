@@ -3,7 +3,10 @@
 <ul>
   <% @symbols.each do |key, value| %>
     <li>
-      Convert 1 <%= key %> to...
+      <a href="/<%= key %>">
+        Convert 1 <%= key %> to...
+      </a>
+      
     </li>
   <% end %>
 </ul>
