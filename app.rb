@@ -45,3 +45,24 @@ get("/:currency") do
   erb(:currency)
 
 end
+
+get("/:currency/:conversion") do
+
+  @currency = params.fetch("currency")
+  @conversion = params.fetch("conversion")
+
+  api_url = "http://api.exchangerate.host/convert?access_key=#{ENV["EXCHANGE_KEY"]}&from=#{@currency}&to=#{@conversion}&amount=1"
+
+  # use HTTP.get to retrieve the API information
+  raw_data = HTTP.get(api_url)
+
+  # convert the raw request to a string
+  raw_data_string = raw_data.to_s
+
+  # convert the string to JSON
+  parsed_data = JSON.parse(raw_data_string)
+
+  @result = parsed_data["result"]
+
+  erb(:conversion)
+end
