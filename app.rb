@@ -21,5 +21,5 @@ get("/") do
   @symbols = parsed_data["currencies"]
 
   # render a view template where I show the symbols
-  # erb(:homepage)
+  erb(:homepage)
 end
